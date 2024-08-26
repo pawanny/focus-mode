@@ -6,5 +6,3 @@ const DEFAULT_BLOCKED_SITES=[
     'twitter.com',
     'instagram.com'
 ]
-
-

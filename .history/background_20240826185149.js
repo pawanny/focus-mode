@@ -2,9 +2,5 @@
 
 
 const DEFAULT_BLOCKED_SITES=[
-    'facebook.com',
-    'twitter.com',
-    'instagram.com'
+    
 ]
-
-
