@@ -33,7 +33,5 @@ function setupBlocking(blockedSites){
 
 
 chrome.storage.onChanged.addListener(function(changes,namespace){
-    if(changes.blockedSites){
-        setupBlocking(changes.blockedSites.newValue)
-    }
+    if(changes.b)
 })

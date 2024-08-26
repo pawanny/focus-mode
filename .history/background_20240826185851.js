@@ -1,7 +1,6 @@
 //Create a file named background.js. This script will handle blocking websites and managing time limits.
 
 
-
 const DEFAULT_BLOCKED_SITES=[
     'facebook.com',
     'twitter.com',
@@ -9,13 +8,10 @@ const DEFAULT_BLOCKED_SITES=[
 ]
 
 
-
 chrome.storage.sync.get(['blockedSites'],function(result){
     let blockedSites  =result.blockedSites || DEFAULT_BLOCKED_SITES;
     setupBlocking(blockedSites)
 })
-
-
 
 function setupBlocking(blockedSites){
     chrome.webRequest.onBeforeRequest.addListener(
@@ -30,10 +26,3 @@ function setupBlocking(blockedSites){
         }
     )
 }
-
-
-chrome.storage.onChanged.addListener(function(changes,namespace){
-    if(changes.blockedSites){
-        setupBlocking(changes.blockedSites.newValue)
-    }
-})

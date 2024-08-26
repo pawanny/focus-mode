@@ -16,7 +16,6 @@ chrome.storage.sync.get(['blockedSites'],function(result){
 })
 
 
-
 function setupBlocking(blockedSites){
     chrome.webRequest.onBeforeRequest.addListener(
         function(details){
@@ -30,10 +29,3 @@ function setupBlocking(blockedSites){
         }
     )
 }
-
-
-chrome.storage.onChanged.addListener(function(changes,namespace){
-    if(changes.blockedSites){
-        setupBlocking(changes.blockedSites.newValue)
-    }
-})
