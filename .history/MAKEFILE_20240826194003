@@ -1,0 +1,39 @@
+# Makefile for Focus Mode Chrome Extension
+
+# Variables
+EXT_DIR = .
+BUILD_DIR = build
+DIST_DIR = dist
+SRC_DIR = src
+ASSETS_DIR = assets
+MANIFEST_FILE = $(EXT_DIR)/manifest.json
+VERSION = $(shell grep '"version":' $(MANIFEST_FILE) | sed 's/.*"version": "\(.*\)",/\1/')
+
+.PHONY: all clean build lint package
+
+# Default target
+all: build lint
+
+# Build the extension
+build:
+	@echo "Building extension..."
+	@mkdir -p $(BUILD_DIR)
+	@cp -r $(SRC_DIR)/* $(BUILD_DIR)
+	@cp -r $(ASSETS_DIR)/* $(BUILD_DIR)
+	@cp $(MANIFEST_FILE) $(BUILD_DIR)
+
+# Lint the code
+lint:
+	@echo "Linting JavaScript files..."
+	@eslint $(SRC_DIR)/**/*.js
+
+# Package the extension
+package: build
+	@echo "Packaging extension..."
+	@mkdir -p $(DIST_DIR)
+	@zip -r $(DIST_DIR)/focus-mode-extension-v$(VERSION).zip $(BUILD_DIR)
+
+# Clean up build files
+clean:
+	@echo "Cleaning up..."
+	@rm -rf $(BUILD_DIR) $(DIST_DIR)
