@@ -22,8 +22,3 @@ addSiteButton.addEventListener('click', function() {
       });
     }
   });
-  function addSiteToList(site) {
-    const listItem = document.createElement('li');
-    listItem.textContent = site;
-    siteList.appendChild(listItem);
-  };
