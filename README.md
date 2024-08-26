@@ -15,4 +15,4 @@
 1. **Clone the Repository:**
 
    ```bash
-   git clone 
+   git clone https://github.com/pawanny/focus-mode.git
