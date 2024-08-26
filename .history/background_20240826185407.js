@@ -8,7 +8,4 @@ const DEFAULT_BLOCKED_SITES=[
 ]
 
 
-chrome.storage.sync.get(['blockedSites'],function(result){
-    let blockedSites  =result.blockedSites || DEFAULT_BLOCKED_SITES;
-    setupBlocking(blockedSites)
-})
+chrome.storage.sync.get(['blockedSites'],function(result))
