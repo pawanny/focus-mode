@@ -1,0 +1,19 @@
+{
+    "manifest_version":3,
+    "name":"Focus mode",
+    "version":"1.0",
+    "description":"Block distracting websites and set time limits on non-products sites.",
+    "permissions":[
+        "storage",
+        "webRequest",
+    "webRequestBlocking",
+    "activeTab"
+    ],
+    "background":{
+        "service_worker":"background.js"
+    }
+    ,
+    "action":{
+        "default"
+    }
+}
